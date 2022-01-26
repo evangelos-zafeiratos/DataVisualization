@@ -24,7 +24,6 @@ def energy_Data(URL):
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
     aaa = soup.find('table', id="statTableHTML")
-    #print(aaa.prettify())
     rows = aaa.find_all('tr')
     pandas_list = list()
     for row in rows:
@@ -106,7 +105,7 @@ diesel = fuel_Data('https://gr.fuelo.net/fuel/type/diesel/3years?lang=en')
 unleaded = fuel_Data('https://gr.fuelo.net/fuel/type/gasoline/3years?lang=en')
 electricity = energy_Data('https://www.statista.com/statistics/1215877/dam-electricity-baseload-price-greece/')
 
-
+# In order to make our data available for Power Query we print our DataFrames
 print(macro)
 print(stocks)
 print(bonds)
